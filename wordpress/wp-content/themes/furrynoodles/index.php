@@ -23,6 +23,9 @@ get_header(); ?>
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php the_title(); ?>
+			<?php if( has_post_thumbnail() ): ?>
+			<?php the_post_thumbnail( 'tc_thumb' ) ?>
+		  <?php endif ?>
 		<?php endwhile; ?>
 
 	<?php else : ?>

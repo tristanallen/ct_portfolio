@@ -8,7 +8,7 @@
  */
 
 add_theme_support( 'post-thumbnails' );
-add_image_size( 'tc_thumb', '300', '200' );
+add_image_size( 'tc_thumb', '480', '360', true );
 
 require_once dirname(__FILE__) . '/inc/work_post_type.php';
 add_action( 'pre_get_posts', 'use_work_posts' );

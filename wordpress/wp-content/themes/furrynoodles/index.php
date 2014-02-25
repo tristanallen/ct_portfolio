@@ -21,16 +21,19 @@ get_header(); ?>
 	<?php if ( have_posts() ) : ?>
 
 		<?php /* Start the Loop */ ?>
-		<?php while ( have_posts() ) : the_post(); ?>
-			<?php the_title(); ?>
-			<?php if( has_post_thumbnail() ): ?>
-			<?php the_post_thumbnail( 'tc_thumb' ) ?>
-		  <?php endif ?>
+		<?php $i = 0 ?>
+		<?php while ( have_posts() ) : the_post(); $i++ ?>
+			<article class="work-thumb<?php echo ($i % 2 == 1)? '' : ' row-last' ?>">
+				<?php if( has_post_thumbnail() ): ?>
+				<?php the_post_thumbnail( 'tc_thumb' ) ?>
+				<?php the_title(); ?> <span class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span>
+			  <?php endif ?>
+			</article>
 		<?php endwhile; ?>
 
 	<?php else : ?>
 
-		<article id="post-0" class="post no-results not-found">
+		<article id="post-0" class="work-thumb no-results not-found">
 			Hello, we're working on it...
 		</article><!-- #post-0 -->
 

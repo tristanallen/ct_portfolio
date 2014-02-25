@@ -9,12 +9,12 @@
  * @since Furrynoodles 1.0
  */
 ?>
-	</div><!-- #main .wrapper -->
+	</div><!-- #content -->
 	<footer>
 		<div class="site-info">
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+</div><!-- #container -->
 
 <?php wp_footer(); ?>
 </body>

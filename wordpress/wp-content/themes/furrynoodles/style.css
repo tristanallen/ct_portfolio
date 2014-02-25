@@ -136,6 +136,33 @@ img {
 	content: "";
 }
 
+/* color */
+
+a,
+a:hover{
+  color: #333;
+}
+
+.work-client,
+#contact-email{
+	color: #888;
+}
+
+.site-title,
+.title-font{
+	font-family: "buena-park", serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+html,
+body,
+.text-font{
+	font-family: "omnes-pro", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
 html, body{
   font-size: 10px;
 }
@@ -143,4 +170,46 @@ html, body{
 #container{
 	font-size: 16px;
 	font-size: 1.6rem;
+}
+
+.site-title{
+	font-size: 36px;
+	font-size: 3.6rem;
+}
+
+a, a:hover{
+  text-decoration: none;
+}
+
+.site-title{
+	margin-bottom: 0.6rem;
+}
+
+body{
+	border-top: 2px solid #333;
+}
+
+#masthead{
+	margin: 3.6rem 0 4.8rem;
+	text-align: center;
+}
+
+#content{
+	width: 972px;
+	margin: 0 auto;
+}
+
+.work-thumb{
+	float: left;
+	width: 480px;
+	clear: left;
+}
+
+.work-thumb.row-last{
+  margin-left: 12px;
+  clear: none;
+}
+
+.work-client{
+
 }

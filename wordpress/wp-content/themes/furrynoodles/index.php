@@ -7,6 +7,8 @@
  * It is used to display a page when nothing more specific matches a query.
  * For example, it puts together the home page when no home.php file exists.
  *
+ * Tris woo
+ *
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package furrynoodles

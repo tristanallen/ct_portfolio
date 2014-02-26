@@ -7,6 +7,8 @@
  *
  */
 
+add_filter('show_admin_bar', '__return_false');
+
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'tc_thumb', '480', '360', true );
 

@@ -26,7 +26,9 @@ get_header(); ?>
 			<article class="work-thumb<?php echo ($i % 2 == 1)? '' : ' row-last' ?>"><a href="<?php echo get_permalink( ); ?>">
 				<?php if( has_post_thumbnail() ): ?>
 				<?php the_post_thumbnail( 'tc_thumb' ) ?>
+        <span class="text">
 				<?php the_title(); ?> <span class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span>
+        </span>
 			  <?php endif ?>
 			</a></article>
 		<?php endwhile; ?>

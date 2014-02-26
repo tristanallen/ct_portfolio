@@ -195,7 +195,7 @@ body{
 }
 
 #content{
-	width: 972px;
+	width: 1024px;
 	margin: 0 auto;
 }
 
@@ -212,4 +212,16 @@ body{
 
 .work-client{
 
+}
+
+.work-content{
+	float:left;
+}
+#work-sidebar{
+	width:300px;
+}
+#work-main{
+	width:724px;
+	min-width:600px;
+	max-width:1024px;
 }

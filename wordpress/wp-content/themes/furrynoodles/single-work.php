@@ -23,17 +23,15 @@ get_header(); ?>
 		<?php /* Start the Loop */ ?>
 		<?php $i = 0 ?>
 		<?php while ( have_posts() ) : the_post(); $i++ ?>
-			<article class="work-thumb<?php echo ($i % 2 == 1)? '' : ' row-last' ?>"><a href="<?php echo get_permalink( ); ?>">
-				<?php if( has_post_thumbnail() ): ?>
-				<?php the_post_thumbnail( 'tc_thumb' ) ?>
-				<?php the_title(); ?> <span class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span>
-			  <?php endif ?>
-			</a></article>
+			
+				<div id="work-sidebar" class="work-content"><?php the_title(); ?> <span class="work-client"> for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span></div>
+				<div id="work-main" class="work-content"><?php the_content(  ) ?></div>
+			  
 		<?php endwhile; ?>
 
 	<?php else : ?>
 
-		<article id="post-0" class="work-thumb no-results not-found">
+		<article id="post-0" class="work-main no-results not-found">
 			Hello, we're working on it...
 		</article><!-- #post-0 -->
 

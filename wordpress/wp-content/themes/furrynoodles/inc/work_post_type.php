@@ -32,7 +32,7 @@ register_post_type( 'work', array(
   'has_archive'        => true,
   'hierarchical'       => false,
   'menu_position'      => null,
-  'supports'           => array( 'title', 'author', 'thumbnail', 'excerpt' )
+  'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
   ) );
 
 add_action( 'add_meta_boxes', 'details_add_meta_box' );

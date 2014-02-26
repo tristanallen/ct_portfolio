@@ -138,13 +138,14 @@ img {
 
 /* color */
 
+#site-navigation a:hover,
 a,
 a:hover{
   color: #333;
 }
 
 .work-client,
-#contact-email{
+#site-navigation a{
 	color: #888;
 }
 
@@ -182,7 +183,19 @@ a, a:hover{
 }
 
 .site-title{
-	margin-bottom: 0.6rem;
+	margin-bottom: 1.0rem;
+}
+
+#site-navigation{
+  text-align: center;
+  margin-left: 16px;
+  margin-left: 1.6rem;
+}
+
+#site-navigation a{
+  display: inline-block;
+  margin-right: 16px;
+  margin-right: 1.6rem;
 }
 
 body{
@@ -190,7 +203,7 @@ body{
 }
 
 #masthead{
-	margin: 3.6rem 0 4.8rem;
+	margin: 5.0rem 0 4.8rem;
 	text-align: center;
 }
 
@@ -202,7 +215,17 @@ body{
 .work-thumb{
 	float: left;
 	width: 480px;
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
 	clear: left;
+}
+
+.work-thumb img{
+  margin-bottom: 2px;
+}
+
+.work-thumb .text{
+  margin-left: -1px;
 }
 
 .work-thumb.row-last{

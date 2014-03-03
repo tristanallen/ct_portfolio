@@ -6,6 +6,7 @@
  * @since Furrynoodles 1.0
  *
  */
+require_once dirname(__FILE__) . '/inc/editor-formatting-keyline.php';
 
 add_filter('show_admin_bar', '__return_false');
 

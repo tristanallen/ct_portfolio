@@ -173,15 +173,21 @@ body,
 html, body{
   font-size: 10px;
 }
+#work-sidebar .excerpt{
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
 
 #container{
 	font-size: 16px;
 	font-size: 1.6rem;
+  line-height: 1.4;
 }
 
 .site-title{
 	font-size: 36px;
 	font-size: 3.6rem;
+  line-height: 1;
 }
 
 a, a:hover{
@@ -189,13 +195,13 @@ a, a:hover{
 }
 
 .site-title{
-	margin-bottom: 1.0rem;
+	margin-bottom: 8px;
 }
 
 #site-navigation{
   text-align: center;
   margin-left: 16px;
-  margin-left: 1.6rem;
+  margin-left: 2.4rem;
 }
 
 #site-navigation a{
@@ -209,12 +215,24 @@ body{
 }
 
 #masthead{
-	margin: 5.0rem 0 4.8rem;
+	margin: 2.4rem 0 6.4rem;
 	text-align: center;
+  width: 972px;
+	margin: 5.4rem auto 6.8rem;
+}
+
+#logo{
+  display: block;
+  width: 224px;
+  height: 73px;
+  margin: 0 auto;
+  background-image: url( 'css/graphics/logo6.jpg' );
+  text-indent: -9999px;
+  overflow: hidden;
 }
 
 #content{
-	width: 1024px;
+	width: 972px;
 	margin: 0 auto;
 }
 
@@ -248,10 +266,19 @@ body{
 	float:right;
 }
 #work-sidebar{
-	width:300px;
+	width:240px;
+  margin-right: 12px;
+}
+#work-sidebar .excerpt{
+  margin: 14px 20px 0 0;
+  margin: 1.4rem 20px 0 0;
 }
 #work-main{
-	width:724px;
+	width:624px;
 	min-width:600px;
 	max-width:1024px;
+}
+#work-main img{
+  width: 624px !important;
+  height: auto !important;
 }

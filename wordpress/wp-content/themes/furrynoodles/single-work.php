@@ -21,20 +21,34 @@ get_header(); ?>
 	<?php if ( have_posts() ) : ?>
 
 		<?php /* Start the Loop */ ?>
-		<?php $i = 0 ?>
-		<?php while ( have_posts() ) : the_post(); $i++ ?>
+		<?php the_post(); ?>
 			
-				<div id="work-sidebar" class="work-content"><?php the_title(); ?> <span class="work-client"> for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span></div>
 				<div id="work-main" class="work-content"><?php the_content(  ) ?></div>
+
+				<div id="work-sidebar" class="work-content">
+					<h2><?php the_title(); ?></h2>
+					<div class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></div>
+					<div class="work-excerpt"><?php the_excerpt(  ) ?></div>
+
+
 			  
-		<?php endwhile; ?>
 
-	<?php else : ?>
+					<?php else : ?>
 
-		<article id="post-0" class="work-main no-results not-found">
-			Hello, we're working on it...
-		</article><!-- #post-0 -->
+						<article id="post-0" class="work-main no-results not-found">
+							Hello, we're working on it...
+						</article><!-- #post-0 -->
 
-	<?php endif; // end have_posts() check ?>
+					<?php endif; // end have_posts() check ?>
+
+					<?php
+					$currentID = get_the_ID();
+					$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '5', 'post__not_in' => array($currentID)));
+					while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+						<?php the_post_thumbnail( 'sidebar_thumb' ) ?>
+						<h3><?php the_title() ?></h3>
+					<?php endwhile; ?>
+
+			</div>
 
 <?php get_footer(); ?>

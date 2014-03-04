@@ -260,7 +260,7 @@ body{
 	margin-top:5px;
 }
 .work-excerpt{
-	margin:15px 0 30px;
+	margin:15px 0;
 }
 .work-content{
 	float:right;
@@ -281,4 +281,11 @@ body{
 #work-main img{
   width: 624px !important;
   height: auto !important;
+}
+.sidebar-work-item{
+	margin-top:30px;
+}
+.keyline{
+	border:1px solid black;
+	display: inline-block
 }

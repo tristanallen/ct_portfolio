@@ -40,14 +40,15 @@ get_header(); ?>
 
 					<?php endif; // end have_posts() check ?>
 
-					<?php
-					$currentID = get_the_ID();
-					$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '5', 'post__not_in' => array($currentID)));
-					while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-						<?php the_post_thumbnail( 'sidebar_thumb' ) ?>
-						<h3><?php the_title() ?></h3>
-					<?php endwhile; ?>
-
-			</div>
+					<div class="sidebar-work-item">
+						<?php
+						$currentID = get_the_ID();
+						$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '5', 'post__not_in' => array($currentID)));
+						while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'sidebar_thumb' ) ?></a>
+							<a href="<?php the_permalink(); ?>"><h3><?php the_title() ?></h3></a>
+						<?php endwhile; ?>
+					</div>
+				</div>
 
 <?php get_footer(); ?>

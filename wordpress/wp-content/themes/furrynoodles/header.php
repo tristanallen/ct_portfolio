@@ -41,8 +41,11 @@
 
 		<nav id="site-navigation" class="main-navigation clear">
 			<!--<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>-->
-			<a href="/about-us">About us</a>
 			<a id="contact-email" href="mailto:madeupfruits@gmail.com">madeupfruits@gmail.com</a>
+      <br/>
+			<a href="/about-us">About us</a>
+      <br/>
+			<a href="/about-us">Work</a>
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->

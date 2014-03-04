@@ -164,6 +164,7 @@ a:hover{
 
 html,
 body,
+h1, h2, h3,
 .text-font{
 	font-family: "omnes-pro", sans-serif;
 	font-style: normal;
@@ -173,6 +174,8 @@ body,
 html, body{
   font-size: 10px;
 }
+
+#work-sidebar .work-related-item h3,
 #work-sidebar .excerpt{
   font-size: 1.4rem;
   line-height: 1.5;
@@ -200,8 +203,6 @@ a, a:hover{
 
 #site-navigation{
   text-align: center;
-  margin-left: 16px;
-  margin-left: 2.4rem;
 }
 
 #site-navigation a{
@@ -211,22 +212,21 @@ a, a:hover{
 }
 
 body{
-	border-top: 2px solid #333;
+	border-top: 2px solid #888;
 }
 
 #masthead{
-	margin: 2.4rem 0 6.4rem;
 	text-align: center;
   width: 972px;
-	margin: 5.4rem auto 6.8rem;
+	margin: 8.8rem auto 9.0rem;
 }
 
 #logo{
   display: block;
-  width: 224px;
-  height: 73px;
+  width: 229px;
+  height: 33px;
   margin: 0 auto;
-  background-image: url( 'css/graphics/logo6.jpg' );
+  background-image: url( 'css/graphics/logo7.jpg' );
   text-indent: -9999px;
   overflow: hidden;
 }
@@ -234,6 +234,7 @@ body{
 #content{
 	width: 972px;
 	margin: 0 auto;
+  margin-bottom: 124px;
 }
 
 .work-thumb{
@@ -245,7 +246,7 @@ body{
 }
 
 .work-thumb img{
-  margin-bottom: 2px;
+  margin-bottom: -2px;
 }
 
 .work-thumb .text{
@@ -274,7 +275,7 @@ body{
   margin: 1.4rem 20px 0 0;
 }
 #work-main{
-	width:624px;
+	width:690px;
 	min-width:600px;
 	max-width:1024px;
 }
@@ -282,8 +283,32 @@ body{
   width: 624px !important;
   height: auto !important;
 }
-.sidebar-work-item{
-	margin-top:30px;
+#work-related-items{
+  clear: both;
+  width: 972px;
+  margin: 36px auto 0;
+  margin: 3.6rem auto 0;
+}
+#work-related-items h2{
+  float: left;
+  width: 282px;
+}
+#work-related-items .work-related-item{
+  margin-bottom: 18px;
+  float: left;
+  margin-right: 12px;
+  width: 200px;
+}
+#work-related-items .work-related-item h3{
+  line-height: 1;
+}
+#work-related-items .work-related-item .work-client{
+  display: block;
+  margin: 0;
+}
+#work-related-items .work-related-item img{
+  width: 200px !important;
+  height: 120px !important;
 }
 .keyline{
 	border:1px solid black;

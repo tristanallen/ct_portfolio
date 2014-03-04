@@ -23,7 +23,10 @@ get_header(); ?>
 		<?php /* Start the Loop */ ?>
 		<?php the_post(); ?>
 			
-				<div id="work-main" class="work-content"><?php the_content(  ) ?></div>
+		<div id="work-wrapper" class="clear">
+				<div id="work-main" class="work-content">
+          <?php the_content(  ) ?>
+        </div>
 
 				<div id="work-sidebar" class="work-content">
 					<h2><?php the_title(); ?></h2>
@@ -40,15 +43,20 @@ get_header(); ?>
 
 					<?php endif; // end have_posts() check ?>
 
-					<div class="sidebar-work-item">
-						<?php
-						$currentID = get_the_ID();
-						$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '5', 'post__not_in' => array($currentID)));
-						while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'sidebar_thumb' ) ?></a>
-							<a href="<?php the_permalink(); ?>"><h3><?php the_title() ?></h3></a>
-						<?php endwhile; ?>
-					</div>
 				</div>
+
+      <div id="work-related-items">
+        <h2>More projects</h2>
+				<?php
+				$currentID = get_the_ID();
+				$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '5', 'post__not_in' => array($currentID)));
+        ?>
+				<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+          <div class="work-related-item">
+            <?php the_post_thumbnail( 'sidebar_thumb' ) ?>
+            <h3><?php the_title() ?> <span class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span></h3>
+          </div>
+				<?php endwhile; ?>
+      </div>
 
 <?php get_footer(); ?>

@@ -130,8 +130,8 @@ class Furrynoodles_Multiple_Image_Attachments
     ob_start();
     ?>
 <div class="furrynoodles_multiple_image_attachments_existing_image">
-  <h3 class="furrynoodles_multiple_image_attachments_image_name">%IMAGE_FILENAME%</h3>
-  <img src="%IMAGE_URL%" width="100" height="100" />
+  <h3 class="furrynoodles_multiple_image_attachments_image_name"><?php echo basename($attachment['url']) ?></h3>
+  <img src="<?php echo $attachment['url'] ?>" width="100" height="100" />
   <input type="hidden" name="furrynoodles_multiple_image_attachments_ids[]" value="%IMAGE_ID%" />
 </div> 
     <?php 
@@ -140,9 +140,29 @@ class Furrynoodles_Multiple_Image_Attachments
 
   private function get_attachments()
   {
+    //$sql = "SELECT * FROM `wp_postmeta` WHERE `meta_key` LIKE '_attachment__' ORDER BY `meta_key`";
+    $sql = 'SELECT * FROM `wp_postmeta`
+            LEFT JOIN `wp_posts`
+            ON `meta_value`=`ID`
+            WHERE `meta_key`
+            LIKE "_attachment__"
+            ORDER BY `meta_key`';
+
+    global $wpdb;
+    $sql_images = $wpdb->get_results( $sql );
+
+    $image_array = array();
+    foreach ( $sql_images as $image )
+    {
+      array_push($image_array, array(
+        'url' => $image->guid,
+        'id' => $image->meta_value));
+    }
+    return $image_array;
+/*
     return array(
-      array( 'url' => '',
-             'id'  => '21'
+      array( 'url' => 'fuckayou',
+             'id'  => '21' 
       ),
       array( 'url' => '',
              'id'  => '23'
@@ -150,7 +170,7 @@ class Furrynoodles_Multiple_Image_Attachments
       array( 'url' => '',
              'id'  => '26'
       )
-    );
+    );*/
   }
 }
 

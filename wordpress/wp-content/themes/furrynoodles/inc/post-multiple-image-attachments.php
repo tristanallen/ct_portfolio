@@ -6,7 +6,7 @@ class Furrynoodles_Multiple_Image_Attachments
   private $meta_box_title  = 'Images';
   private $post_type       = 'work';
   private $nonce_action    = 'furrynoodles_multiple_image_attachments';
-  private $nonce_name      = 'furrynoodles_multiple_image_attachments_add_image';
+  private $nonce_name      = 'furrynoodles_multiple_image_attachments_save';
   private $meta_key_prefix = '_attachment';
   private $post_id;
 
@@ -16,16 +16,17 @@ class Furrynoodles_Multiple_Image_Attachments
     add_filter( 'posts_join', array( $this, 'query_add_join_attachments' ) );
 
     if( is_admin() ){
+      add_action( 'admin_head', array( $this, 'on_post_ready' ) );
       add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-      add_action( 'the_post', array( $this, 'on_post_ready' ) );
       add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
       add_action( 'save_post', array( $this, 'save' ) );
     }
   }
 
-  public function on_post_ready( $post )
+  public function on_post_ready()
   {
-    exit( 'id'.$post->ID );
+    global $post;
+    $this->post_id = $post->ID;
   }
 
   public function query_add_join_attachments( $query )

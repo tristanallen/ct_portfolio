@@ -119,7 +119,7 @@ class Furrynoodles_Multiple_Image_Attachments
     foreach( $this->get_attachments() as $attachment ){
       $html .= $this->get_html_image_item( $attachment );
     }
-    $html = str_replace( '%IMAGE_ITEM_HTML%', $this->get_html_image_item(), $html );
+    $html = str_replace( '%IMAGE_ITEM_HTML%', $this->get_html_image_item( $attachment ), $html );
     return $html;
   }
 

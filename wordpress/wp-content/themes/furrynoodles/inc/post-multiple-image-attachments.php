@@ -90,6 +90,7 @@ class Furrynoodles_Multiple_Image_Attachments
     $image_ids = $_POST[ 'furrynoodles_multiple_image_attachments_ids' ];
 
     $order = array();
+    $i = 0;
     foreach( $image_ids as $image_id )
     {
       $image_id = preg_replace( '/[^0-9]/', '', $image_id );
@@ -97,6 +98,7 @@ class Furrynoodles_Multiple_Image_Attachments
       $meta_key = $this->meta_key_prefix.'_'.$i;
       update_post_meta( $post_id, $meta_key, $image_id );
       array_push( $order, $image_id );
+      $i++;
     }
     update_post_meta( $post_id, $meta_key . '_order', serialize( $order ) );
   }

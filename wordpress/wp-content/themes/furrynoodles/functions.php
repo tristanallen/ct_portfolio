@@ -7,6 +7,7 @@
  *
  */
 require_once dirname(__FILE__) . '/inc/editor-formatting-keyline.php';
+require_once dirname(__FILE__) . '/inc/post-multiple-image-attachments.php';
 
 add_filter('show_admin_bar', '__return_false');
 

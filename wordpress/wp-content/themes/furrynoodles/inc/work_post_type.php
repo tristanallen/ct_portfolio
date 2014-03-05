@@ -43,7 +43,6 @@ function details_add_meta_box()
 
 function details_meta_box($post)
 {
-
   // Add an nonce field so we can check for it later.
   wp_nonce_field( 'work_details_nonce', 'work_details_nonce' );
 
@@ -54,7 +53,6 @@ function details_meta_box($post)
   $value = get_post_meta( $post->ID, '_work_details_whatwedid', true );
   echo '<div><label for="work_whatwedid">What We Did: </label>';
   echo '<input type="text" id="work_whatwedid" name="work_details_whatwedid" value="' . esc_attr( $value ) . '" size="25" /></div>';
-
 }
 
 function work_details_save_postdata( $post_id ) {

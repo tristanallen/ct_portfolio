@@ -198,19 +198,19 @@ class Furrynoodles_Multiple_Image_Attachments
 <button class="furrynoodles_multiple_image_attachments_add_image_trigger" onclick="return false;">Add Image</button>
 <input id="furrynoodles_multiple_image_attachments_new_image_id" type="hidden" />
 <div class="furrynoodles_multiple_image_attachments_existing_images">
-<ul id="sortable">%IMAGES%</ul>
+<ul>%IMAGES%</ul>
 </div>
 
 <script class="furrynoodles_multiple_image_attachments_image_item_template" type="text/template">
 %IMAGE_ITEM_HTML%
 </script>
-
     
     <?php 
     $html = ob_get_clean(); 
     $wp_upload_dir = wp_upload_dir();
     $images_html = '';
     foreach( $this->get_attachments() as $attachment ){
+      //var_dump($attachment);
       $images_html .= str_replace(
         array(
           '%IMAGE_FILENAME%',
@@ -218,9 +218,9 @@ class Furrynoodles_Multiple_Image_Attachments
           '%IMAGE_ID%'
         ), 
         array(
-          basename($attachment['url']),
-          $wp_upload_dir['baseurl'] . '/' . $attachment['url'],
-          $attachment['id']
+          basename($attachment['image_data']['file']),
+          $wp_upload_dir['baseurl'] . '/' . dirname( $attachment['image_data']['file'] ) . '/' . $attachment['image_data']['sizes']['thumbnail']['file'],
+          $attachment['post_id']
         ),
         $this->get_html_image_item( $attachment )
       );
@@ -237,7 +237,7 @@ class Furrynoodles_Multiple_Image_Attachments
     ob_start();
     ?>
 <li class="furrynoodles_multiple_image_attachments_existing_image">
-  <h3 class="furrynoodles_multiple_image_attachments_image_name">%IMAGE_FILENAME%</h3>
+  <p class="furrynoodles_multiple_image_attachments_image_name">%IMAGE_FILENAME%</p>
   <img src="%IMAGE_URL%" width="100" height="100" />
   <input type="hidden" name="furrynoodles_multiple_image_attachments_ids[]" value="%IMAGE_ID%" />
 </li> 
@@ -276,10 +276,7 @@ class Furrynoodles_Multiple_Image_Attachments
     $image_array = array();
     foreach ( $sql_images as $image )
     {
-      $image_data = unserialize( $image->meta_value );
-      array_push($image_array, array(
-        'url' => dirname( $image_data['file'] ) . '/' . $image_data['sizes']['thumbnail']['file'],
-        'id'  => $image->post_id));
+      array_push($image_array, array( 'post_id' => $image->post_id, 'image_data' => unserialize( $image->meta_value )));
     }
     return $image_array;
   }

@@ -2,7 +2,8 @@
   $(function(){
 
     var image_custom_uploader;
-    var trigger = $('.furrynoodles_multiple_image_attachments_add_image_trigger')
+    var trigger = $('.furrynoodles_multiple_image_attachments_add_image_trigger');
+    var image_container = $('.furrynoodles_multiple_image_attachments_existing_images ul');
     var template_image_item = $( '.furrynoodles_multiple_image_attachments_image_item_template' ).first().html();
     console.log( template_image_item );
 
@@ -33,7 +34,7 @@
           var html = template_image_item.replace( '%IMAGE_FILENAME%', attachment.filename );
           html = html.replace( '%IMAGE_URL%', attachment.url );
           html = html.replace( '%IMAGE_ID%', attachment.id );
-          trigger.after( html );
+          image_container.append( html );
         });
       });
 
@@ -42,8 +43,8 @@
     });
 
 
-    $( "#sortable" ).sortable();
-    $( "ul, li" ).disableSelection();
+    $( ".furrynoodles_multiple_image_attachments_existing_images ul" ).sortable();
+    $( ".furrynoodles_multiple_image_attachments_existing_images ul, .furrynoodles_multiple_image_attachments_existing_images li" ).disableSelection();
 
   });
 })( jQuery );

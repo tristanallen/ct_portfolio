@@ -128,7 +128,7 @@ class Furrynoodles_Multiple_Image_Attachments
   public function get_meta_box_html()
   {
     wp_nonce_field( $this->nonce_action, $this->nonce_name );
-    echo str_replace( '%IMAGES%', 'TEST', $this->get_html_container() );
+    echo $this->get_html_container();
   }
 
   public function save( $post_id )
@@ -198,35 +198,48 @@ class Furrynoodles_Multiple_Image_Attachments
 <button class="furrynoodles_multiple_image_attachments_add_image_trigger" onclick="return false;">Add Image</button>
 <input id="furrynoodles_multiple_image_attachments_new_image_id" type="hidden" />
 <div class="furrynoodles_multiple_image_attachments_existing_images">
-%IMAGES%
+<ul id="sortable">%IMAGES%</ul>
 </div>
 
 <script class="furrynoodles_multiple_image_attachments_image_item_template" type="text/template">
 %IMAGE_ITEM_HTML%
 </script>
 
-    <ul id="sortable">
+    
     <?php 
     $html = ob_get_clean(); 
+    $wp_upload_dir = wp_upload_dir();
+    $images_html = '';
     foreach( $this->get_attachments() as $attachment ){
-      $html .= $this->get_html_image_item( $attachment );
+      $images_html .= str_replace(
+        array(
+          '%IMAGE_FILENAME%',
+          '%IMAGE_URL%',
+          '%IMAGE_ID%'
+        ), 
+        array(
+          basename($attachment['url']),
+          $wp_upload_dir['baseurl'] . '/' . $attachment['url'],
+          $attachment['id']
+        ),
+        $this->get_html_image_item( $attachment )
+      );
+      
     }
-    $html = str_replace( '%IMAGE_ITEM_HTML%', $this->get_html_image_item( $attachment ), $html );
+    $html = str_replace( '%IMAGE_ITEM_HTML%', $this->get_html_image_item(  ), $html );
+    $html = str_replace( '%IMAGES%', $images_html, $html );
+
     return $html;
-    ?>
-    </ul>
-    <?php
   }
 
-  private function get_html_image_item( $attachment )
+  private function get_html_image_item(  )
   {
     ob_start();
     ?>
 <li class="furrynoodles_multiple_image_attachments_existing_image">
-  <h3 class="furrynoodles_multiple_image_attachments_image_name"><?php echo basename($attachment['url']) ?></h3>
-  <?php $wp_upload_dir = wp_upload_dir() ?>
-  <img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment['url'] ?>" width="100" height="100" />
-  <input type="hidden" name="furrynoodles_multiple_image_attachments_ids[]" value="<?php echo $attachment['id'] ?>" />
+  <h3 class="furrynoodles_multiple_image_attachments_image_name">%IMAGE_FILENAME%</h3>
+  <img src="%IMAGE_URL%" width="100" height="100" />
+  <input type="hidden" name="furrynoodles_multiple_image_attachments_ids[]" value="%IMAGE_ID%" />
 </li> 
     <?php 
     return ob_get_clean();

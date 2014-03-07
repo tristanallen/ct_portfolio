@@ -165,14 +165,26 @@ a:hover{
 html,
 body,
 h1, h2, h3,
-.text-font{
+.title-font{
 	font-family: "omnes-pro", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+.body-font{
+	font-family: Verdana, sans-serif;
 	font-style: normal;
 	font-weight: 400;
 }
 
 html, body{
   font-size: 10px;
+}
+
+.body-font{
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #444;
 }
 
 #work-sidebar .work-related-item h3,
@@ -212,13 +224,13 @@ a, a:hover{
 }
 
 body{
-	border-top: 2px solid #888;
+	/*border-top: 2px solid #888;*/
 }
 
 #masthead{
 	text-align: center;
   width: 972px;
-	margin: 8.8rem auto 9.0rem;
+	margin: 8.2rem auto 10.9rem;
 }
 
 #logo{
@@ -258,10 +270,13 @@ body{
   clear: none;
 }
 .work-client{
-	margin-top:5px;
+	margin-top:8px;
 }
 .work-excerpt{
-	margin:15px 0;
+	margin:12px 0;
+}
+.work-excerpt p{
+  margin-bottom: 12px;
 }
 .work-content{
 	float:right;
@@ -311,6 +326,6 @@ body{
   height: 120px !important;
 }
 .keyline{
-	border:1px solid black;
+	border:1px solid #bbb;
 	display: inline-block
 }

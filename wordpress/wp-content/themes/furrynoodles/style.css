@@ -326,6 +326,6 @@ body{
   height: 120px !important;
 }
 .keyline{
-	border:1px solid black;
+	border:1px solid #bbb;
 	display: inline-block
 }

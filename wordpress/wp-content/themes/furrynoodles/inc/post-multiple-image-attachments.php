@@ -2,7 +2,7 @@
 
 class Furrynoodles_Multiple_Image_Attachments
 {
-  private $unique_ref      = 'attachment';
+  private $unique_ref      = 'fn_attachment';
   private $meta_box_id     = 'furrynoodles_multiple_image_attachments';
   private $meta_box_title  = 'Images';
   private $post_type       = 'work';
@@ -101,8 +101,9 @@ class Furrynoodles_Multiple_Image_Attachments
 
     wp_enqueue_script( 'furrynoodles_multiple_image_attachments_js',
                        get_template_directory_uri() . '/js/post_multiple_image_attachments.js',
-                       array( 'jquery' )
+                       array( 'jquery', 'jquery-ui-draggable' )
                        );
+
   }
 
   public function add_meta_box()
@@ -143,6 +144,27 @@ class Furrynoodles_Multiple_Image_Attachments
 
     /* OK, its safe for us to save the data now. */
 
+    $sql .= str_replace( 
+      array(
+        '[[POST_ID]]',
+        '[[META_KEY_PREFIX]]'
+      ), 
+      array(
+        $this->post_id,
+        $this->get_meta_key_prefix()
+      ),
+      '
+      DELETE
+      FROM wp_postmeta
+      WHERE meta_key LIKE "[[META_KEY_PREFIX]]%"
+      AND post_id = [[POST_ID]]
+      '
+    );
+    global $wpdb;
+    $wpdb->query(
+      $wpdb->prepare( $sql )
+    );
+
     // Sanitize user input.
     $image_ids = $_POST[ 'furrynoodles_multiple_image_attachments_ids' ];
 
@@ -157,7 +179,6 @@ class Furrynoodles_Multiple_Image_Attachments
       array_push( $order, $image_id );
       $i++;
     }
-    update_post_meta( $post_id, $meta_key . '_order', serialize( $order ) );
   }
 
   private function get_html_container()
@@ -173,6 +194,8 @@ class Furrynoodles_Multiple_Image_Attachments
 <script class="furrynoodles_multiple_image_attachments_image_item_template" type="text/template">
 %IMAGE_ITEM_HTML%
 </script>
+
+    <ul id="sortable">
     <?php 
     $html = ob_get_clean(); 
     foreach( $this->get_attachments() as $attachment ){
@@ -180,18 +203,21 @@ class Furrynoodles_Multiple_Image_Attachments
     }
     $html = str_replace( '%IMAGE_ITEM_HTML%', $this->get_html_image_item( $attachment ), $html );
     return $html;
+    ?>
+    </ul>
+    <?php
   }
 
   private function get_html_image_item( $attachment )
   {
     ob_start();
     ?>
-<div class="furrynoodles_multiple_image_attachments_existing_image">
+<li class="furrynoodles_multiple_image_attachments_existing_image">
   <h3 class="furrynoodles_multiple_image_attachments_image_name"><?php echo basename($attachment['url']) ?></h3>
   <?php $wp_upload_dir = wp_upload_dir() ?>
   <img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment['url'] ?>" width="100" height="100" />
-  <input type="hidden" name="furrynoodles_multiple_image_attachments_ids[]" value="%IMAGE_ID%" />
-</div> 
+  <input type="hidden" name="furrynoodles_multiple_image_attachments_ids[]" value="<?php echo $attachment['id'] ?>" />
+</li> 
     <?php 
     return ob_get_clean();
   }
@@ -227,10 +253,10 @@ class Furrynoodles_Multiple_Image_Attachments
     $image_array = array();
     foreach ( $sql_images as $image )
     {
-      $image = unserialize( $image->meta_value );
+      $image_data = unserialize( $image->meta_value );
       array_push($image_array, array(
-        'url' => dirname( $image['file'] ) . '/' . $image['sizes']['thumbnail']['file'],
-        'id'  => $image->meta_value));
+        'url' => dirname( $image_data['file'] ) . '/' . $image_data['sizes']['thumbnail']['file'],
+        'id'  => $image->post_id));
     }
     return $image_array;
   }

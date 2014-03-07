@@ -41,5 +41,9 @@
       image_custom_uploader.open();
     });
 
+
+    $( "#sortable" ).sortable();
+    $( "ul, li" ).disableSelection();
+
   });
 })( jQuery );

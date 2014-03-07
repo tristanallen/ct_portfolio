@@ -32,7 +32,7 @@ get_header(); ?>
 					<h2><?php the_title(); ?></h2>
 					<div class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></div>
           <div class="excerpt">
-					<div class="work-excerpt"><?php the_excerpt(  ) ?></div>
+					<div class="work-excerpt body-font"><?php the_excerpt(  ) ?></div>
           </div>
 
 					<?php else : ?>

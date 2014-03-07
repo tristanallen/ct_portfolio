@@ -272,12 +272,6 @@ body{
 .work-client{
 	margin-top:8px;
 }
-.work-excerpt{
-	margin:12px 0;
-}
-.work-excerpt p{
-  margin-bottom: 12px;
-}
 .work-content{
 	float:right;
 }
@@ -288,6 +282,10 @@ body{
 #work-sidebar .excerpt{
   margin: 14px 20px 0 0;
   margin: 1.4rem 20px 0 0;
+}
+#work-sidebar .excerpt p{
+  margin-bottom: 14px;
+  margin-bottom: 1.4rem;
 }
 #work-main{
 	width:690px;

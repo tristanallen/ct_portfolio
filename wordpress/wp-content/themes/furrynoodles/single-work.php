@@ -25,10 +25,9 @@ get_header(); ?>
 			
 		<div id="work-wrapper" class="clear">
 				<div id="work-main" class="work-content">
-          <?php //the_content(  ) ?>
           <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
             <?php $wp_upload_dir = wp_upload_dir() ?>
-            <img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'url' ] ?>" />
+            <img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" />
           <?php endforeach; ?>
         </div>
 
@@ -36,7 +35,7 @@ get_header(); ?>
 					<h2><?php the_title(); ?></h2>
 					<div class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></div>
           <div class="excerpt">
-					<div class="work-excerpt body-font"><?php the_excerpt(  ) ?></div>
+            <?php the_content() ?>
           </div>
 
 					<?php else : ?>

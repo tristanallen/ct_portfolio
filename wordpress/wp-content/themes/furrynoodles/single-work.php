@@ -25,7 +25,11 @@ get_header(); ?>
 			
 		<div id="work-wrapper" class="clear">
 				<div id="work-main" class="work-content">
-          <?php the_content(  ) ?>
+          <?php //the_content(  ) ?>
+          <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
+            <?php $wp_upload_dir = wp_upload_dir() ?>
+            <img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'url' ] ?>" />
+          <?php endforeach; ?>
         </div>
 
 				<div id="work-sidebar" class="work-content">

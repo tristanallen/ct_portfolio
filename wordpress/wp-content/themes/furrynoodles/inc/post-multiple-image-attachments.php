@@ -24,6 +24,16 @@ class Furrynoodles_Multiple_Image_Attachments
     }
   }
 
+  public function set_post_id( $id )
+  {
+    $this->post_id = $id;
+  }
+
+  public function get_post_id( $id )
+  {
+    return $this->post_id = $id;
+  }
+
   public function get_meta_key_prefix()
   {
     return '_' . $this->unique_ref . '_';
@@ -222,7 +232,7 @@ class Furrynoodles_Multiple_Image_Attachments
     return ob_get_clean();
   }
 
-  private function get_attachments()
+  public function get_attachments()
   {
     $sql .= str_replace( 
       array(
@@ -262,4 +272,20 @@ class Furrynoodles_Multiple_Image_Attachments
   }
 }
 
-new Furrynoodles_Multiple_Image_Attachments();
+if( is_admin() ){
+  new Furrynoodles_Multiple_Image_Attachments();
+}
+
+/**
+ *
+ */
+$furrynoodles_multiple_image_attachments = null;
+function the_multiple_image_attachments(){
+  global $furrynoodles_multiple_image_attachments;
+  $mia = $furrynoodles_multiple_image_attachments;
+  if( !$mia ){
+    $mia = new Furrynoodles_Multiple_Image_Attachments();
+    $mia->set_post_id( get_the_ID() );
+  }
+  return $mia->get_attachments();
+}

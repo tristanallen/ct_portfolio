@@ -271,11 +271,11 @@ body{
 
 .work-thumb .image{
   display: block;
-  box-shadow: 0 0 4px #888;
+  box-shadow: 0 0 1px #aaa;
   border-top-left-radius: 2px;
-  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
   border-bottom-left-radius: 1px;
-  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
 }
 
 .work-thumb .image:before{
@@ -291,6 +291,8 @@ body{
   background-position: 5px 4px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .work-thumb .image:after{

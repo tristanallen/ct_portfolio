@@ -113,6 +113,7 @@ class Furrynoodles_Multiple_Image_Attachments
                        get_template_directory_uri() . '/js/post_multiple_image_attachments.js',
                        array( 'jquery', 'jquery-ui-draggable' )
                        );
+    wp_enqueue_style( "furrynoodles_multiple_image_attachments_css",  get_template_directory_uri()."/css/furrynoodles_multiple_image_attachments.css" );
 
   }
 
@@ -133,6 +134,8 @@ class Furrynoodles_Multiple_Image_Attachments
 
   public function save( $post_id )
   {
+    $this->post_id = $post_id;
+
     // Check if our nonce is set and is valid
     if ( ! isset( $_POST[ $this->nonce_name ] )
          || wp_verify_nonce( $nonce, $this->nonce_action )
@@ -154,26 +157,19 @@ class Furrynoodles_Multiple_Image_Attachments
 
     /* OK, its safe for us to save the data now. */
 
-    $sql .= str_replace( 
-      array(
-        '[[POST_ID]]',
-        '[[META_KEY_PREFIX]]'
-      ), 
-      array(
-        $this->post_id,
-        $this->get_meta_key_prefix()
-      ),
-      '
+    $sql = '
       DELETE
       FROM wp_postmeta
-      WHERE meta_key LIKE "[[META_KEY_PREFIX]]%"
-      AND post_id = [[POST_ID]]
-      '
-    );
+      WHERE meta_key LIKE "%s"
+      AND post_id = %d
+      ';
+
     global $wpdb;
     $wpdb->query(
-      $wpdb->prepare( $sql )
+      $wpdb->prepare( $sql, $this->get_meta_key_prefix().'%', $this->post_id )
     );
+   // var_dump($wpdb->prepare( $sql, "" ));
+    //exit;
 
     // Sanitize user input.
     $image_ids = $_POST[ 'furrynoodles_multiple_image_attachments_ids' ];
@@ -198,7 +194,7 @@ class Furrynoodles_Multiple_Image_Attachments
 <button class="furrynoodles_multiple_image_attachments_add_image_trigger" onclick="return false;">Add Image</button>
 <input id="furrynoodles_multiple_image_attachments_new_image_id" type="hidden" />
 <div class="furrynoodles_multiple_image_attachments_existing_images">
-<ul>%IMAGES%</ul>
+<ul class="clear">%IMAGES%</ul>
 </div>
 
 <script class="furrynoodles_multiple_image_attachments_image_item_template" type="text/template">
@@ -236,9 +232,12 @@ class Furrynoodles_Multiple_Image_Attachments
   {
     ob_start();
     ?>
-<li class="furrynoodles_multiple_image_attachments_existing_image">
-  <p class="furrynoodles_multiple_image_attachments_image_name">%IMAGE_FILENAME%</p>
+<li class="furrynoodles_multiple_image_attachments_existing_image clear">
   <img src="%IMAGE_URL%" width="100" height="100" />
+  <div class="actions">
+    <p class="furrynoodles_multiple_image_attachments_image_name">%IMAGE_FILENAME%</p>
+    <a class="delete" href="">delete</a>
+  </div>
   <input type="hidden" name="furrynoodles_multiple_image_attachments_ids[]" value="%IMAGE_ID%" />
 </li> 
     <?php 

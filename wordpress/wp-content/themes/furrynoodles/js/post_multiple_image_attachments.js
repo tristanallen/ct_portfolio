@@ -5,7 +5,7 @@
     var trigger = $('.furrynoodles_multiple_image_attachments_add_image_trigger');
     var image_container = $('.furrynoodles_multiple_image_attachments_existing_images ul');
     var template_image_item = $( '.furrynoodles_multiple_image_attachments_image_item_template' ).first().html();
-    console.log( template_image_item );
+    //console.log( template_image_item );
 
     trigger.click(function(e) {
       e.preventDefault();
@@ -45,6 +45,16 @@
 
     $( ".furrynoodles_multiple_image_attachments_existing_images ul" ).sortable();
     $( ".furrynoodles_multiple_image_attachments_existing_images ul, .furrynoodles_multiple_image_attachments_existing_images li" ).disableSelection();
+
+
+    $('body').on("click", ".furrynoodles_multiple_image_attachments_existing_image .delete", function(e) {
+      e.preventDefault();
+      //console.log("")
+
+
+      $(this).parents(".furrynoodles_multiple_image_attachments_existing_image").remove();
+
+    });
 
   });
 })( jQuery );

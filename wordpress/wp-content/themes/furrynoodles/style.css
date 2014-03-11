@@ -166,6 +166,7 @@ html,
 body,
 h1, h2, h3,
 .title-font{
+  font-size: 100%;
 	font-family: "omnes-pro", sans-serif;
 	font-style: normal;
 	font-weight: 400;
@@ -182,21 +183,27 @@ html, body{
 }
 
 .body-font{
-  font-size: 1.2rem;
-  line-height: 1.7;
+  font-size: 13px !important;
+  font-size: 1.3rem !important;
+  line-height: 1.6;
   color: #444;
 }
 
 #work-sidebar .work-related-item h3,
 #work-sidebar .excerpt{
   font-size: 1.4rem;
-  line-height: 1.5;
 }
 
 #container{
 	font-size: 16px;
 	font-size: 1.6rem;
   line-height: 1.4;
+}
+
+#work-sidebar .work-related-item h2
+{
+	font-size: 18px;
+	font-size: 1.8rem;
 }
 
 .site-title{
@@ -210,7 +217,7 @@ a, a:hover{
 }
 
 .site-title{
-	margin-bottom: 8px;
+	margin-bottom: 2px;
 }
 
 #site-navigation{
@@ -244,7 +251,7 @@ body{
 }
 
 #content{
-	width: 972px;
+	width: 995px;
 	margin: 0 auto;
   margin-bottom: 124px;
 }
@@ -253,20 +260,59 @@ body{
 	float: left;
 	width: 480px;
   margin-bottom: 24px;
-  margin-bottom: 2.4rem;
+  margin-bottom: 3.6rem;
 	clear: left;
 }
 
 .work-thumb img{
   margin-bottom: -2px;
+  display: block;
+}
+
+.work-thumb .image{
+  display: block;
+  box-shadow: 0 0 4px #888;
+  border-top-left-radius: 2px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+}
+
+.work-thumb .image:before{
+  content: ".";
+  display: block;
+  overflow: hidden;
+  text-indent: -999px;
+  width: 100%;
+  height: 14px;
+  background-color: #acacac;
+  background-image: url( 'css/graphics/buttons.png' );
+  background-repeat: no-repeat;
+  background-position: 5px 4px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.work-thumb .image:after{
+  content: ".";
+  display: block;
+  overflow: hidden;
+  text-indent: -999px;
+  width: 100%;
+  height: 10px;
+  background-color: #acacac;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .work-thumb .text{
+  display: block;
+  margin-top: 4px;
   margin-left: -1px;
 }
 
 .work-thumb.row-last{
-  margin-left: 12px;
+  margin-left: 22px;
   clear: none;
 }
 .work-client{
@@ -322,6 +368,24 @@ body{
 #work-related-items .work-related-item img{
   width: 200px !important;
   height: 120px !important;
+}
+.about-us{
+  margin: 0 auto;
+  width: 812px;
+}
+.introduction{
+}
+.about-us img{
+  width: 400px;
+  background: #888;
+}
+.person{
+  width: 400px;
+  float: left;
+  margin: 0 12px 0 0;
+}
+.person:last-child{
+  margin-right: 0;
 }
 .keyline{
 	border:1px solid #bbb;

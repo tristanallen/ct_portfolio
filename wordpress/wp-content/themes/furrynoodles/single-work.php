@@ -34,7 +34,7 @@ get_header(); ?>
 				<div id="work-sidebar" class="work-content">
 					<h2><?php the_title(); ?></h2>
 					<div class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></div>
-          <div class="excerpt">
+          <div class="excerpt body-font">
             <?php the_content() ?>
           </div>
 

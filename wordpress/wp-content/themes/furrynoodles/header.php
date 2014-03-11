@@ -44,8 +44,6 @@
 			<a id="contact-email" href="mailto:madeupfruits@gmail.com">madeupfruits@gmail.com</a>
       <br/>
 			<a href="/about-us">About us</a>
-      <br/>
-			<a href="/about-us">Work</a>
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->

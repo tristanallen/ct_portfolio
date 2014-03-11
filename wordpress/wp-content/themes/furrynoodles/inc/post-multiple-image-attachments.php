@@ -296,5 +296,9 @@ function the_multiple_image_attachments(){
     $mia = new Furrynoodles_Multiple_Image_Attachments();
     $mia->set_post_id( get_the_ID() );
   }
-  return $mia->get_attachments();
+  $image_data = array();
+  foreach( $mia->get_attachments() as $attachment ){
+    array_push( $image_data, $attachment[ 'image_data' ] );
+  }
+  return $image_data;
 }

@@ -1,0 +1,11 @@
+
+.furrynoodles_multiple_image_attachments_existing_image img{
+  float:left;
+  display:block;
+}
+.furrynoodles_multiple_image_attachments_existing_image .actions{
+  min-height:100px;
+}
+.furrynoodles_multiple_image_attachments_existing_image .delete:hover{
+  color:#f00;
+}

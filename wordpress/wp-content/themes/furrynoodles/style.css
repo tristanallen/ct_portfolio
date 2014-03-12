@@ -185,11 +185,12 @@ html, body{
 .body-font{
   font-size: 13px !important;
   font-size: 1.3rem !important;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #444;
 }
 
 #work-sidebar .work-related-item h3,
+#work-sidebar .work-client,
 #work-sidebar .excerpt{
   font-size: 1.4rem;
 }
@@ -204,6 +205,11 @@ html, body{
 {
 	font-size: 18px;
 	font-size: 1.8rem;
+}
+
+#work-sidebar h2{
+	font-size: 20px;
+	font-size: 2rem;
 }
 
 .site-title{
@@ -236,8 +242,8 @@ body{
 
 #masthead{
 	text-align: center;
-  width: 972px;
-	margin: 8.2rem auto 10.9rem;
+  width: 880px;
+	margin: 8.6rem auto 8rem;
 }
 
 #logo{
@@ -251,7 +257,7 @@ body{
 }
 
 #content{
-	width: 995px;
+	width: 990px;
 	margin: 0 auto;
   margin-bottom: 124px;
 }
@@ -327,6 +333,13 @@ body{
 	width:240px;
   margin-right: 12px;
 }
+#work-sidebar h2{
+	border-top: 2px solid #555;
+	padding-top: 2px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: -10px;
+}
 #work-sidebar .excerpt{
   margin: 14px 20px 0 0;
   margin: 1.4rem 20px 0 0;
@@ -336,23 +349,31 @@ body{
   margin-bottom: 1.4rem;
 }
 #work-main{
-	width:690px;
+	width: 736px;
 	min-width:600px;
 	max-width:1024px;
+	border-top: 2px solid #555;
+  padding-top: 11px;
 }
 #work-main img{
-  width: 624px !important;
+  width: 734px !important;
   height: auto !important;
+}
+#work-main .image{
+  margin-bottom: 20px;
+}
+#work-main .image img{
+  vertical-align: top;
 }
 #work-related-items{
   clear: both;
-  width: 972px;
+  width: 880px;
   margin: 36px auto 0;
   margin: 3.6rem auto 0;
 }
 #work-related-items h2{
   float: left;
-  width: 282px;
+  width: 198px;
 }
 #work-related-items .work-related-item{
   margin-bottom: 18px;

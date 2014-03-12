@@ -27,7 +27,7 @@ get_header(); ?>
 				<div id="work-main" class="work-content">
           <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
             <?php $wp_upload_dir = wp_upload_dir() ?>
-            <img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" />
+            <span class="keyline image"><img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" /></span>
           <?php endforeach; ?>
         </div>
 

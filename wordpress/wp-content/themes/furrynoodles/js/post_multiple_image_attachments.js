@@ -7,7 +7,7 @@
     var template_image_item = $( '.furrynoodles_multiple_image_attachments_image_item_template' ).first().html();
     //console.log( template_image_item );
 
-    trigger.click(function(e) {
+    $('body').on("click", ".furrynoodles_multiple_image_attachments_add_image_trigger", function(e) {
       e.preventDefault();
 
       //If the uploader object has already been created, reopen the dialog

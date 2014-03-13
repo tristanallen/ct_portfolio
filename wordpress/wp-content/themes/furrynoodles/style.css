@@ -367,9 +367,10 @@ body{
 }
 #work-related-items{
   clear: both;
-  width: 880px;
+  width: 988px;
   margin: 36px auto 0;
   margin: 3.6rem auto 0;
+  padding-top: 20px;
 }
 #work-related-items h2{
   float: left;
@@ -390,7 +391,7 @@ body{
 }
 #work-related-items .work-related-item img{
   width: 200px !important;
-  height: 120px !important;
+  height: 124px !important;
 }
 .about-us{
   margin: 0 auto;
@@ -453,4 +454,18 @@ body{
   margin-bottom: 10px;
   border-bottom:1px solid #ccc;
   height:67px;
+}
+
+#work-related-sidebar{
+  width: 240px;
+  margin-right: 12px;
+  border-top: 1px solid #555;
+  padding-top: 40px;
+}
+#work-related-main{
+  width: 736px;
+  min-width: 600px;
+  max-width: 1024px;
+  border-top: 1px solid #555;
+  padding-top: 40px;
 }

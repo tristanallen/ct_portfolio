@@ -251,9 +251,13 @@ body{
   width: 229px;
   height: 33px;
   margin: 0 auto;
-  background-image: url( 'css/graphics/logo7.jpg' );
+  background-image: url( 'css/graphics/logo-light.png' );
+  background-repeat: no-repeat;
   text-indent: -9999px;
   overflow: hidden;
+}
+.home #logo{
+  background-image: url( 'css/graphics/logo-dark.png' );
 }
 
 #content{
@@ -396,9 +400,11 @@ body{
   width: 812px;
 }
 .introduction{
-  font-size:30px;
+  text-align: center;
+  margin-bottom: 20px;
 }
-.introduction p{
+.introduction h1{
+  font-size:30px;
   margin-top: -10px;
   font-family: "buena-park";
   margin-bottom: 50px;
@@ -414,23 +420,29 @@ body{
   margin-bottom: 35px;
   border-bottom:1px solid #ccc;
 }
-.person{
-  width: 400px;
+.person, .skills ul{
+  width: 394px;
   float: left;
   margin: 0 12px 0 0;
+}
+.person{
+  margin-bottom: 22px;
 }
 .person:last-child{
   margin-right: 0;
 }
-.keyline{
-	border:1px solid #bbb;
-	display: inline-block;
+.person h3{
+  font-weight: 600;
 }
-
-/** ABOUT **/
-.introduction{
-  text-align: center;
-  margin-bottom: 20px;
+.person p{
+  margin-top: 22px;
+}
+.skills{
+  clear: left;
+}
+.skills ul{
+  border-top:1px solid #ccc;
+  padding-top: 6px;
 }
 .services-skills{
   margin:0 auto;
@@ -444,8 +456,9 @@ body{
 .services-skills li{
   float:left;
 }
-.person h3{
-  font-weight: 600;
+.keyline{
+	border:1px solid #bbb;
+	display: inline-block;
 }
 .person p{
   padding-bottom: 10px;

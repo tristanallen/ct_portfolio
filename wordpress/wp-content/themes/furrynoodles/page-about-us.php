@@ -12,24 +12,26 @@ get_header(); ?>
 
 <div class="about-us">
   <div class="introduction">
-    <p>We do digital designs to get your business going.</p>
-      <img src="../wp-content/themes/furrynoodles/img/about_us_photo_olde2.jpg" />
+    <h1>Get your digital juices flowing.</h1>
+    <img src="../wp-content/themes/furrynoodles/img/about_us_photo_olde2.jpg" />
   </div>
   <div class="people clear">
     <div class="person">
-        <h3>Clarence</h3>
-      <p>Clarence has worked for Time Out, Tobias and Tobias, with such clients as First Capital Connect and Fidelity</p>
+      <h3>Clarence Lee</h3>
+      <p>Clarence has managed digital teams at Time Out, led UX projects at Tobias & Tobias, and had illustrations published on the Playstation website.</p>
+    </div>
+    <div class="person">
+      <h3>Tristan Allen</h3>
+      <p>Tristan has worked for Global Interactive Marketing Online, HMX with such clients as Sony, Lenovo, Dell, Carphone Warehouse, panasonic, Nikon</p>
+    </div>
+    <div class="skills">
       <ul>
         <li>Visual Design</li>
         <li>User Experience</li>
-        <li>iOS</li>
         <li>HTML / CSS</li>
         <li>PHP / SQL</li>
+        <li>iOS</li>
       </ul>
-    </div>
-    <div class="person">
-      <h3>Tristan</h3>
-      <p>Tristan has worked for Global Interactive Marketing Online, HMX with such clients as Sony, Lenovo, Dell, Carphone Warehouse, panasonic, Nikon</p>
       <ul>
         <li>Development</li>
         <li>Flash</li>

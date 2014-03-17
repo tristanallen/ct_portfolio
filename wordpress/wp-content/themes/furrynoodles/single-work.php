@@ -27,7 +27,7 @@ get_header(); ?>
 				<div id="work-main" class="work-content">
           <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
             <?php $wp_upload_dir = wp_upload_dir() ?>
-            <span class="keyline image"><img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" /></span>
+            <span class="keyline image"><img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" class="image-space-fix"/></span>
           <?php endforeach; ?>
         </div>
 
@@ -56,7 +56,7 @@ get_header(); ?>
           ?>
   				<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
             <div class="work-related-item">
-              <a href="<?php echo get_permalink() ?>"><?php the_post_thumbnail( 'related_thumb' ) ?></a>
+              <a href="<?php echo get_permalink() ?>"><span class="keyline"><?php the_post_thumbnail( 'related_thumb', array('class' => 'image-space-fix')) ?></span></a>
                <a href="<?php echo get_permalink() ?>"><h3><?php the_title() ?> <span class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span></h3></a>
             </div>
   				<?php endwhile; ?>

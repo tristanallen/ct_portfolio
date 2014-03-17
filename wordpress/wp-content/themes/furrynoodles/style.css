@@ -362,9 +362,6 @@ body{
 #work-main .image{
   margin-bottom: 20px;
 }
-#work-main .image img{
-  vertical-align: top;
-}
 #work-related-items{
   clear: both;
   width: 988px;
@@ -384,6 +381,7 @@ body{
 }
 #work-related-items .work-related-item h3{
   line-height: 1;
+  margin-top: 10px;
 }
 #work-related-items .work-related-item .work-client{
   display: block;
@@ -468,4 +466,7 @@ body{
   max-width: 1024px;
   border-top: 1px solid #555;
   padding-top: 40px;
+}
+.image-space-fix{
+  vertical-align: top;
 }

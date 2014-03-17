@@ -174,6 +174,9 @@ class Furrynoodles_Multiple_Image_Attachments
     // Sanitize user input.
     $image_ids = $_POST[ 'furrynoodles_multiple_image_attachments_ids' ];
 
+    if(!is_array($image_ids))
+      return;
+
     $order = array();
     $i = 0;
     foreach( $image_ids as $image_id )

@@ -53,6 +53,11 @@ function details_meta_box($post)
   $value = get_post_meta( $post->ID, '_work_details_whatwedid', true );
   echo '<div><label for="work_whatwedid">What We Did: </label>';
   echo '<input type="text" id="work_whatwedid" name="work_details_whatwedid" value="' . esc_attr( $value ) . '" size="25" /></div>';
+
+  $value = get_post_meta( $post->ID, '_work_details_mobile', true );
+  $value = $value == "1" ? "checked" : "";
+  echo '<div><label for="work_mobile">Mobile: </label>';
+  echo '<input type="checkbox" id="work_mobile" name="work_details_mobile" size="25" '.$value.'/></div>';
 }
 
 function work_details_save_postdata( $post_id ) {
@@ -92,11 +97,18 @@ function work_details_save_postdata( $post_id ) {
 
   // Sanitize user input.
 
-  $meta_fields = array('work_details_client', 'work_details_whatwedid');
-
-  foreach ($meta_fields as $meta)
+  $meta_fields_text = array('work_details_client', 'work_details_whatwedid');
+  foreach ($meta_fields_text as $meta)
   {
     $meta_field = sanitize_text_field( $_POST[$meta] );
+    update_post_meta( $post_id, '_'.$meta, $meta_field );
+  }
+
+  $meta_fields_checkbox = array('work_details_mobile');
+  foreach ($meta_fields_checkbox as $meta)
+  {
+    $meta_field = $_POST[$meta];
+    $meta_field = is_string($meta_field) ? '1' : '0';
     update_post_meta( $post_id, '_'.$meta, $meta_field );
   }
   

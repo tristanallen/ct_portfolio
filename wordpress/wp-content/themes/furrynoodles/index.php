@@ -17,7 +17,7 @@
  */
 
 get_header(); ?>
-
+<section>
 	<?php if ( have_posts() ) : ?>
 
 		<?php /* Start the Loop */ ?>
@@ -25,7 +25,7 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); $i++ ?>
 			<article class="work-thumb<?php echo ($i % 2 == 1)? '' : ' row-last' ?>"><a href="<?php echo get_permalink( ); ?>">
 				<?php if( has_post_thumbnail() ): ?>
-        <span class="image">
+        <span class="<?php echo get_post_meta( get_the_ID(), '_work_details_mobile', true ) ? "mobile" : "website" ?>">
 				  <?php the_post_thumbnail( 'home_thumb' ) ?>
         </span>
         <span class="text">
@@ -42,5 +42,5 @@ get_header(); ?>
 		</article><!-- #post-0 -->
 
 	<?php endif; // end have_posts() check ?>
-
+</section>
 <?php get_footer(); ?>

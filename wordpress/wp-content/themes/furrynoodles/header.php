@@ -27,6 +27,7 @@
 
 <script type="text/javascript" src="//use.typekit.net/bpd6bfy.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script>document.createElement("section")</script>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri() ?>/style.css">
 </head>

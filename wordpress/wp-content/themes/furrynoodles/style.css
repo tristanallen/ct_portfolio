@@ -186,6 +186,11 @@ html, body{
   font-size: 10px;
 }
 
+body{
+  background-image: url('css/graphics/sections.gif');
+  background-position: center -185px;
+}
+
 .body-font{
   font-size: 13px !important;
   font-size: 1.3rem !important;
@@ -247,7 +252,7 @@ body{
 #masthead{
 	text-align: center;
   width: 880px;
-	margin: 8.6rem auto 8rem;
+	margin: 4.0rem auto 11rem;
 }
 
 #logo{
@@ -277,7 +282,7 @@ body{
 	float: left;
 	width: 480px;
   margin-bottom: 24px;
-  margin-bottom: 3.6rem;
+  margin-bottom: 8rem;
 	clear: left;
 }
 

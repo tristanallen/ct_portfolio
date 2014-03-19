@@ -261,7 +261,7 @@ body{
   overflow: hidden;
 }
 #logo:hover{
-  background-image: url( 'css/graphics/logo-dark-hover.png' );
+  background-image: url( 'css/graphics/logo-dark.png' );
 }
 .home #logo{
   background-image: url( 'css/graphics/logo-dark.png' );
@@ -289,6 +289,7 @@ body{
 .work-thumb .mobile{
   display: block;
   border: 1px solid #ccc;
+  overflow-x: hidden;
 }
 .work-thumb .mobile:before{
   content: ".";
@@ -410,8 +411,8 @@ body{
 #work-related-items .work-related-item{
   margin-bottom: 18px;
   float: left;
-  margin-right: 12px;
-  width: 200px;
+  margin-right: 14px;
+  width: 235px;
 }
 #work-related-items .work-related-item h3{
   line-height: 1;
@@ -422,8 +423,8 @@ body{
   margin: 0;
 }
 #work-related-items .work-related-item img{
-  width: 200px !important;
-  height: 124px !important;
+  width: 235px !important;
+  height: 140px !important;
 }
 .about-us{
   margin: 0 auto;
@@ -503,14 +504,19 @@ body{
   width: 240px;
   margin-right: 12px;
   border-top: 1px solid #555;
-  padding-top: 40px;
+  padding-top: 11px;
+  margin-top: 30px;
 }
 #work-related-main{
   width: 736px;
   min-width: 600px;
   max-width: 1024px;
   border-top: 1px solid #555;
-  padding-top: 40px;
+  padding-top: 11px;
+  margin-top: 30px;
+}
+#work-related-main > div:nth-child(3) {
+  margin-right: 0;
 }
 .image-space-fix{
   vertical-align: top;

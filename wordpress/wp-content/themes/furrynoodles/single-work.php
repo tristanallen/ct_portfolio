@@ -53,7 +53,7 @@ get_header(); ?>
           <div id="work-related-main" class="work-content">
     				<?php
     				$currentID = get_the_ID();
-    				$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '5', 'post__not_in' => array($currentID)));
+    				$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '3', 'post__not_in' => array($currentID)));
             ?>
     				<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
               <div class="work-related-item">

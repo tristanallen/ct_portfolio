@@ -11,7 +11,7 @@
 get_header(); ?>
 
 <div class="introduction">
-  <p>Get your digital juices flowing.</p>
+  <p><?php echo get_bloginfo ( 'description' ) ?></p>
     <!--img src="../wp-content/themes/furrynoodles/img/about_us_photo_olde2.jpg" /-->
 </div>
 <section>

@@ -240,6 +240,12 @@ a, a:hover{
   margin-right: 1.6rem;
 }
 
+.introduction p{
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
 body{
 	/*border-top: 2px solid #888;*/
 }
@@ -362,7 +368,7 @@ body{
 	margin-top:8px;
 }
 .work-content{
-	float:right;
+	float:left;
 }
 #work-sidebar{
 	width:240px;
@@ -385,8 +391,6 @@ body{
 }
 #work-main{
 	width: 736px;
-	min-width:600px;
-	max-width:1024px;
 	border-top: 2px solid #555;
   padding-top: 11px;
 }
@@ -431,6 +435,7 @@ body{
   width: 812px;
 }
 .introduction{
+  position: relative;
   text-align: center;
   margin-bottom: 20px;
   background-image:url("css/graphics/about_us_photo.png");
@@ -440,11 +445,14 @@ body{
   height:360px;
 }
 .introduction p{
+  position: absolute;
+  bottom: 10px;
   font-size:30px;
-  padding-top: 300px;
   margin-top: -10px;
   font-family: "buena-park";
   color:#3a3b3d;
+  text-align: center;
+  width: 100%;
 }
 .about-us img{
   width: 812px;
@@ -509,8 +517,6 @@ body{
 }
 #work-related-main{
   width: 736px;
-  min-width: 600px;
-  max-width: 1024px;
   border-top: 1px solid #555;
   padding-top: 11px;
   margin-top: 30px;
@@ -525,5 +531,77 @@ body{
   /* MOBILE */
 @media only screen
 and (max-width : 767px){
-
+  #masthead, #content,
+  #content section,
+  #work-sidebar,
+  #work-main, #work-main img,
+  .keyline.image,
+  #work-related-sidebar,
+  #work-related-main,
+  #work-related-items,
+  .work-related-item .keyline,
+  .about-us,
+  .about-us .person{
+    width:100%;
+  }
+  #content section, .keyline.image, .work-related-item .keyline{
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+  }
+  .work-thumb, .work-thumb.row-last{
+    margin: 0 auto 35px;
+    float:none;
+    width: 100%;
+  }
+  .work-thumb img, #work-main img,
+  #work-related-items .work-related-item img{
+    width: 100% !important;
+    height: auto !important;
+  }
+  #content{
+    margin-bottom:24px;
+  }
+  #content section{
+    padding: 10px;
+  }
+  #work-sidebar .exerpt{
+    margin-right:0;
+  }
+  .work-related-item:last-child,
+  .about-us .skills{
+    display:none;
+  }
+  #work-related-items .work-related-item{
+    width:49%;
+    margin-right:0;
+  }
+  #work-related-items .work-related-item:first-child{
+    margin-right:2%;
+  }
+  #work-related-main{
+    margin-top: 10px;
+  }
+  #work-related-items{
+    margin: 0;
+  }
+  .introduction p{
+    padding: 0 20px;
+  }
+  .about-us .people{
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .about-us .person{
+    margin-bottom: 30px;
+  }
+  .about-us .person p{
+    height: auto;
+  }
+  .about-us .services-skills ul li{
+    float: none;
+    text-align: left;
+    margin-bottom: 5px;
+  }
 }

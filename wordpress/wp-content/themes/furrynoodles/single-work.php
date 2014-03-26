@@ -20,19 +20,12 @@ get_header(); ?>
 
 
 		
-    <section>
-  		<div id="work-wrapper" class="clear">
-
+    
+		<div id="work-wrapper" class="clear">
+      <section class="clear">
         <?php if ( have_posts() ) : ?>
           <?php /* Start the Loop */ ?>
           <?php the_post(); ?>
-
-  				<div id="work-main" class="work-content">
-            <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
-              <?php $wp_upload_dir = wp_upload_dir() ?>
-              <span class="keyline image"><img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" class="image-space-fix"/></span>
-            <?php endforeach; ?>
-          </div>
 
   				<div id="work-sidebar" class="work-content">
   					<h2><?php the_title(); ?></h2>
@@ -42,6 +35,13 @@ get_header(); ?>
             </div>
           </div>
 
+          <div id="work-main" class="work-content">
+            <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
+              <?php $wp_upload_dir = wp_upload_dir() ?>
+              <span class="keyline image"><img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" class="image-space-fix"/></span>
+            <?php endforeach; ?>
+          </div>
+
   			<?php else : ?>
 
   				<article id="post-0" class="work-main no-results not-found">
@@ -49,8 +49,11 @@ get_header(); ?>
   				</article><!-- #post-0 -->
 				
         <?php endif; // end have_posts() check ?>
+        </section>
 
+        <section class="clear">
         <div id="work-related-items">
+          <div id="work-related-sidebar" class="work-content"><h2>More projects</h2></div>
           <div id="work-related-main" class="work-content">
     				<?php
     				$currentID = get_the_ID();
@@ -63,9 +66,8 @@ get_header(); ?>
               </div>
     				<?php endwhile; ?>
           </div>
-          <div id="work-related-sidebar" class="work-content"><h2>More projects</h2></div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
 <?php get_footer(); ?>

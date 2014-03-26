@@ -246,7 +246,7 @@ body{
 
 #masthead{
 	text-align: center;
-  width: 880px;
+  width: 990px;
 	margin: 8.0rem auto 8.2rem;
 }
 
@@ -520,4 +520,10 @@ body{
 }
 .image-space-fix{
   vertical-align: top;
+}
+
+  /* MOBILE */
+@media only screen
+and (max-width : 767px){
+
 }

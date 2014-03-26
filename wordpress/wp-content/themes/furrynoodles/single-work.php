@@ -18,13 +18,15 @@
 
 get_header(); ?>
 
-	<?php if ( have_posts() ) : ?>
 
-		<?php /* Start the Loop */ ?>
-		<?php the_post(); ?>
 		
     <section>
   		<div id="work-wrapper" class="clear">
+
+        <?php if ( have_posts() ) : ?>
+          <?php /* Start the Loop */ ?>
+          <?php the_post(); ?>
+
   				<div id="work-main" class="work-content">
             <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
               <?php $wp_upload_dir = wp_upload_dir() ?>
@@ -38,16 +40,15 @@ get_header(); ?>
             <div class="excerpt body-font">
               <?php the_content() ?>
             </div>
+          </div>
 
-  					<?php else : ?>
+  			<?php else : ?>
 
-  						<article id="post-0" class="work-main no-results not-found">
-  							Hello, we're working on it...
-  						</article><!-- #post-0 -->
-
-  					<?php endif; // end have_posts() check ?>
-
-  				</div>
+  				<article id="post-0" class="work-main no-results not-found">
+  					Hello, we're working on it...
+  				</article><!-- #post-0 -->
+				
+        <?php endif; // end have_posts() check ?>
 
         <div id="work-related-items">
           <div id="work-related-main" class="work-content">

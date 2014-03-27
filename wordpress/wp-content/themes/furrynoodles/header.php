@@ -20,8 +20,8 @@
 <!--<![endif]-->
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
-<title><?php wp_title( '|', true, 'right' ); ?></title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+<title><?php wp_title( '|', true, 'right' ); ?> Made Up Fruits</title>
 
 <?php wp_head(); ?>
 

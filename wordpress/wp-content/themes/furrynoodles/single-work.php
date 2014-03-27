@@ -18,19 +18,14 @@
 
 get_header(); ?>
 
-	<?php if ( have_posts() ) : ?>
 
-		<?php /* Start the Loop */ ?>
-		<?php the_post(); ?>
 		
-    <section>
-  		<div id="work-wrapper" class="clear">
-  				<div id="work-main" class="work-content">
-            <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
-              <?php $wp_upload_dir = wp_upload_dir() ?>
-              <span class="keyline image"><img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" class="image-space-fix"/></span>
-            <?php endforeach; ?>
-          </div>
+    
+		<div id="work-wrapper" class="clear">
+      <section class="clear">
+        <?php if ( have_posts() ) : ?>
+          <?php /* Start the Loop */ ?>
+          <?php the_post(); ?>
 
   				<div id="work-sidebar" class="work-content">
   					<h2><?php the_title(); ?></h2>
@@ -38,22 +33,31 @@ get_header(); ?>
             <div class="excerpt body-font">
               <?php the_content() ?>
             </div>
+          </div>
 
-  					<?php else : ?>
+          <div id="work-main" class="work-content">
+            <?php foreach( the_multiple_image_attachments() as $attachment ): ?>
+              <?php $wp_upload_dir = wp_upload_dir() ?>
+              <span class="keyline image"><img src="<?php echo $wp_upload_dir['baseurl'] . '/' . $attachment[ 'file' ] ?>" class="image-space-fix"/></span>
+            <?php endforeach; ?>
+          </div>
 
-  						<article id="post-0" class="work-main no-results not-found">
-  							Hello, we're working on it...
-  						</article><!-- #post-0 -->
+  			<?php else : ?>
 
-  					<?php endif; // end have_posts() check ?>
+  				<article id="post-0" class="work-main no-results not-found">
+  					Hello, we're working on it...
+  				</article><!-- #post-0 -->
+				
+        <?php endif; // end have_posts() check ?>
+        </section>
 
-  				</div>
-
+        <section class="clear">
         <div id="work-related-items">
+          <div id="work-related-sidebar" class="work-content"><h2>More projects</h2></div>
           <div id="work-related-main" class="work-content">
     				<?php
     				$currentID = get_the_ID();
-    				$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '5', 'post__not_in' => array($currentID)));
+    				$my_query = new WP_Query( array('post_type'=>'work', 'showposts' => '3', 'post__not_in' => array($currentID)));
             ?>
     				<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
               <div class="work-related-item">
@@ -62,9 +66,8 @@ get_header(); ?>
               </div>
     				<?php endwhile; ?>
           </div>
-          <div id="work-related-sidebar" class="work-content"><h2>More projects</h2></div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
 <?php get_footer(); ?>

@@ -1,0 +1,42 @@
+@media only screen
+and (min-width: 768px){
+  body{
+    background-image: url('graphics/sections.png');
+    background-color: #FCFFA6;
+  }
+  #masthead {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-width: 990px;
+    z-index: 10;
+    background-image: url('graphics/sections.png');
+    background-position: center -235px;
+    margin: 0;
+	  padding: 3.0rem 0 8.2rem;
+  }
+  #content {
+    /* margin-top: 180px; */
+    position: fixed;
+    position: relative;
+    top: 180px;
+  }
+  .index{
+  }
+  article.work-thumb{
+    -webkit-perspective: 2000;
+    -webkit-perspective-origin: 101% 900px;
+    -webkit-transform: rotateX(0deg);
+    //clear: left !important;
+  }
+  article.work-thumb.row-last{
+    -webkit-perspective-origin: -1% 900px;
+  }
+  article.work-thumb .inner{
+    -webkit-transform-origin: 0 100%;
+    -webkit-backface-visibility: hidden;
+  }
+  article.work-thumb .outfit{
+    background: #333;
+  }
+}

@@ -23,22 +23,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
 <title><?php wp_title( '|', true, 'right' ); ?> Made Up Fruits</title>
 
+<?php wp_enqueue_script("jquery"); ?>.
 <?php wp_head(); ?>
 
 <script type="text/javascript" src="//use.typekit.net/bpd6bfy.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script>document.createElement("section")</script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/parallax.js"></script>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri() ?>/style.css">
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri() ?>/css/parallax.css">
 </head>
 
 <body <?php body_class(); ?>>
 <div id="container">
 	<header id="masthead">
-		<hgroup>
-			<h1 class="site-title"><a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<!--<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>-->
-		</hgroup>
+    <div>
+      <h1 class="site-title"><a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+      <!--<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>-->
+    </div>
 
 		<nav id="site-navigation" class="main-navigation clear">
 			<!--<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>-->

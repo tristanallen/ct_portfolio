@@ -188,7 +188,7 @@ html, body{
 
 body{
   background-image: url('css/graphics/sections.gif');
-  background-position: center -185px;
+  background-position: center -235px;
 }
 
 .body-font{
@@ -258,7 +258,7 @@ body{
 #masthead{
 	text-align: center;
   width: 990px;
-	margin: 8.0rem auto 8.2rem;
+	margin: 3.0rem auto 8.2rem;
 }
 
 #logo{

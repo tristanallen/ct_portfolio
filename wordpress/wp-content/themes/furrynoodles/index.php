@@ -17,22 +17,33 @@
  */
 
 get_header(); ?>
+<section class="splash">
+  <p>
+    <span>Ridiculously serious</span> about Web
+  </p>
+</section>
 <section class="index">
 	<?php if ( have_posts() ) : ?>
 
 		<?php /* Start the Loop */ ?>
 		<?php $i = 0 ?>
 		<?php while ( have_posts() ) : the_post(); $i++ ?>
-			<article class="work-thumb<?php echo ($i % 2 == 1)? '' : ' row-last' ?>"><a href="<?php echo get_permalink( ); ?>">
-				<?php if( has_post_thumbnail() ): ?>
-        <span class="outfit <?php echo get_post_meta( get_the_ID(), '_work_details_mobile', true ) ? "mobile" : "website" ?>">
-				  <?php the_post_thumbnail( 'home_thumb' ) ?>
-        </span>
-        <span class="text">
-				<?php the_title(); ?> <span class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span>
-        </span>
-			  <?php endif ?>
-			</a></article>
+			<article class="work-row">
+        <div class="inner clear">
+          <div class="work-thumb">
+            <a href="<?php echo get_permalink( ); ?>">
+              <?php if( has_post_thumbnail() ): ?>
+              <span class="outfit <?php echo get_post_meta( get_the_ID(), '_work_details_mobile', true ) ? "mobile" : "website" ?>">
+                <?php the_post_thumbnail( 'home_thumb' ) ?>
+              </span>
+              <?php endif ?>
+            </a>
+          </div>
+          <span class="text">
+          <?php the_title(); ?> <span class="work-client">for <?php echo get_post_meta( get_the_ID(), '_work_details_client', true ) ?></span>
+          </span>
+        </div>
+      </article>
 		<?php endwhile; ?>
 
 	<?php else : ?>

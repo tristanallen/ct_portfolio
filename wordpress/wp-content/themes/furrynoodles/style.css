@@ -125,10 +125,6 @@ img {
 	border: 0;
 	-ms-interpolation-mode: bicubic;
 }
-section{
-  width:990px;
-  margin:0 auto;
-}
 
 /* Clearing floats */
 .clear:after,
@@ -184,11 +180,6 @@ h1, h2, h3,
 
 html, body{
   font-size: 10px;
-}
-
-body{
-  background-image: url('css/graphics/sections.gif');
-  background-position: center -235px;
 }
 
 .body-font{
@@ -284,12 +275,15 @@ body{
   margin-bottom: 124px;
 }
 
+.work-row .inner{
+	width: 990px;
+  margin: 0 auto;
+}
+
 .work-thumb{
-	float: left;
 	width: 480px;
   margin-bottom: 24px;
   margin-bottom: 8rem;
-	clear: left;
 }
 
 .work-thumb img{
@@ -556,7 +550,6 @@ and (max-width : 767px){
   }
   .work-thumb, .work-thumb.row-last{
     margin: 0 auto 35px;
-    float:none;
     width: 100%;
   }
   .work-thumb img, #work-main img,

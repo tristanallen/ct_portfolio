@@ -83,6 +83,11 @@ function onScroll(event){
           'opacity': ''
             + ((180-rotation)/180)
         });
+      }else{
+        container.children('.inner').css( {
+          'transform': ''
+            + 'rotateX(0deg)'
+        });
       }
     });
 }
